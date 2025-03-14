@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/qrCodeGenerator.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>    
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Text to QR</h1>
+        <textarea id="text" placeholder="Write your message..."></textarea>
+        <button id="convert">Convert</button>
+    </div>
+    <div class="container">
+        <h1>hellow here is your QR</h1>
+        <div id="qrcode"></div>
+    </div>
+<script src="../scripts/qrCodeGenerator.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/calculator.css">
+</head>
+<body>
+    <div class="container">
+        <h1 style="padding-left: 37px;">Calculator</h1>
+        <div class="diplay">
+            <input id="result" placeholder="0">
+        </div>
+        <div class="keys">
+            <button id="allClearBtn" style="background-color: blueviolet;">AC</button>
+            <button onclick="digits('&#40')">&#40</button>
+            <button onclick="digits('&#41')">&#41</button>
+            <button onclick="digits('&#247')">&#247</button>
+            <button onclick="digits('7')">7</button>
+            <button onclick="digits('8')">8</button>
+            <button onclick="digits('9')">9</button>
+            <button onclick="digits('*')">*</button>
+            <button onclick="digits('4')">4</button>
+            <button onclick="digits('5')">5</button>
+            <button onclick="digits('6')">6</button>
+            <button onclick="digits('-')">-</button>
+            <button onclick="digits('1')">1</button>
+            <button onclick="digits('2')">2</button>
+            <button onclick="digits('3')">3</button>
+            <button onclick="digits('+')">+</button>
+            <button onclick="digits('0')">0</button>
+            <button onclick="digits('.')">.</button>
+            <button id="clearBtn">C</button>
+            <button id="equalsBtn" style="background-color: blue;">=</button>
+        </div>
+    </div>
+</body>
+<script src="../scripts/calculator.js"></script>
+</html>

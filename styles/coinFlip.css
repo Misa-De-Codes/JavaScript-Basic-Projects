@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: aliceblue; 
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    height: 70%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.scores{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}
+button{
+    height: 24px;
+    border: 1px solid rgb(0, 187, 255);
+    border-radius: 8px;
+    background-color: blue;
+    color: aliceblue;
+}
+button:hover{
+    background-color: aliceblue;
+    color: blue;
+    transition: 0.15s ease-in-out;
+}

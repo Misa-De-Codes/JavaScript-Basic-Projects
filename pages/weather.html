@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Charming Weather App</title>
+  <!-- You can add some styling here if you're feeling fancy -->
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    #weatherResult { margin-top: 20px; }
+    input, button { padding: 10px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Charming Weather App</h1>
+  <!-- Input field for city name -->
+  <input type="text" id="cityInput" placeholder="Enter city name" />
+  <!-- Button to trigger the weather fetch -->
+  <button id="getWeatherBtn">Get Weather</button>
+  <!-- Div to display the weather results -->
+  <div id="weatherResult"></div>
+  
+  <script>
+    // Replace 'YOUR_API_KEY' with your actual API key from OpenWeatherMap.
+    const apiKey = 'YOUR_API_KEY';
+    // Base URL for the weather API (using metric units for temperature)
+    const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+    /**
+     * Fetches weather data for the provided city.
+     * @param {string} city - The city name to fetch weather for.
+     * @returns {Object} - The weather data in JSON format or an error message.
+     */
+    async function fetchWeather(city) {
+      // Construct the full API URL with the city, API key, and units set to metric
+      const url = `${baseUrl}?q=${city}&appid=${apiKey}&units=metric`;
+      try {
+        // Perform the fetch request to get weather data
+        const response = await fetch(url);
+        // If the response is not OK, throw an error (e.g., city not found)
+        if (!response.ok) {
+          throw new Error('City not found. Please try again!');
+        }
+        // Parse the JSON data from the response
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        // Log the error for debugging and return an object with the error message
+    //    console.error('Error fetching weather data:', error);
+        return { error: error.message };
+      }
+    }
+
+    /**
+     * Displays the fetched weather data or error message on the webpage.
+     * @param {Object} data - The weather data or error object.
+     */
+    function displayWeather(data) {
+      const weatherDiv = document.getElementById('weatherResult');
+      if (data.error) {
+        // If an error occurred, display the error in red text
+        weatherDiv.innerHTML = `<p style="color:red;">Error: ${data.error}</p>`;
+      } else {
+        // Extract key weather details from the data
+        const city = data.name;
+        const temp = data.main.temp;
+        const description = data.weather[0].description;
+        // Display the weather details with a dash of flair!
+        weatherDiv.innerHTML = `
+          <h2>Weather in ${city}</h2>
+          <p>Temperature: ${temp}°C</p>
+          <p>Description: ${description}</p>
+        `;
+      }
+    }
+    // Add an event listener to the button to initiate the weather fetch process
+    document.getElementById('getWeatherBtn').addEventListener('click', async () => {
+      // Get the city name from the input field
+      const city = document.getElementById('cityInput').value;
+      // Check if the input is empty; if so, alert the user to enter a city name
+      if (city.trim() === '') {
+        alert('Please enter a city name, darling!');
+        return;
+      }
+      // Fetch the weather data and then display it on the page
+      const weatherData = await fetchWeather(city);
+      displayWeather(weatherData);
+    });
+  </script>
+</body>
+</html>

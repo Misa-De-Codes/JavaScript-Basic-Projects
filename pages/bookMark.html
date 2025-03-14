@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Tracker</title>
+    <style>
+        /* Default Light Mode Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #toggle-dark {
+            background: #333;
+            color: white;
+        }
+
+        .dark-mode #toggle-dark {
+            background: white;
+            color: black;
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+            margin-right: 5px;
+        }
+
+        #bookmark-list {
+            margin-top: 20px;
+        }
+
+        .darkmode #bookmark-list {
+            border: 1px solod white;
+        }
+    
+        .bookmark-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        #add-bookmark {
+            background-color: blue;
+            color: white;
+        }
+
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bookmark Tracker</h1>
+    <button id="toggle-dark">Toggle Dark Mode</button>
+
+    <h3>Add a Bookmark:</h3>
+    <input type="text" id="bookmark-title" placeholder="Enter website name">
+    <input type="url" id="bookmark-url" placeholder="Enter website URL">
+    <button id="add-bookmark">Add</button>
+
+    <h3>Saved Bookmarks:</h3>
+    <div id="bookmark-list"></div>
+
+    <script>
+        const darkModeBtn = document.getElementById("toggle-dark");
+        const addBookmarkBtn = document.getElementById("add-bookmark");
+        const bookmarkList = document.getElementById("bookmark-list");
+
+        // Dark Mode Toggle
+        darkModeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+
+        // Add Bookmark
+        addBookmarkBtn.addEventListener("click", () => {
+            const title = document.getElementById("bookmark-title").value.trim();
+            const url = document.getElementById("bookmark-url").value.trim();
+
+            if (title === "" || url === "") {
+                alert("Please enter both name and URL.");
+                return;
+            }
+
+            const bookmarkItem = document.createElement("div");
+            bookmarkItem.classList.add("bookmark-item");
+
+            bookmarkItem.innerHTML = `
+                <a href="${url}" target="_blank">${title}</a>
+                <button class="delete-btn">Delete</button>
+            `;
+
+            bookmarkList.appendChild(bookmarkItem);
+
+            // Clear input fields
+            document.getElementById("bookmark-title").value = "";
+            document.getElementById("bookmark-url").value = "";
+
+            // Delete bookmark functionality
+            bookmarkItem.querySelector(".delete-btn").addEventListener("click", () => {
+                bookmarkItem.remove();
+            });
+        });
+    </script>
+</body>
+</html>
