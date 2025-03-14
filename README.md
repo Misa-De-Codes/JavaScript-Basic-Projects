@@ -93,13 +93,13 @@ A flashcard app to help users study and memorize information using digital flash
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/your-repo-name.git
+    git clone https://github.com/Misa-De-Codes/JavaScript-Basic-Projects.git
     ```
 2. Open the project folder:
     ```bash
-    cd your-repo-name
+    cd JavaScript-Basic-Projects
     ```
-3. Open the `index.html` file in your browser to view the project.
+3. Open the `NAME.html` files in your browser to view the projects.
 
 ## Contributing
 
