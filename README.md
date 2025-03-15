@@ -13,9 +13,6 @@ If you're also learning JavaScript, feel free to check out the code, experiment 
 ### **1. Bookmark Saver**  
 My first-ever project! A simple bookmark saver with a dark mode toggle. *Note: It doesn’t store bookmarks in local storage yet.*  
 
-### **🖩 Basic Calculator**  
-A basic arithmetic calculator. While making this, I learned how JavaScript handles user inputs and mathematical operations.  
-
 ### **2. Heads and Tails Game**  
 A fun little game that taught me about randomization and basic game logic. Includes a scoring system!  
 
@@ -46,6 +43,10 @@ fetch(apiUrl)
     })
     .catch(error => console.error('Error fetching the weather data:', error));
 ```
+### **8. Basic Calculator**  
+A basic arithmetic calculator. While making this, I learned how JavaScript handles user inputs and mathematical operations.  
+
+
 ## 🛠️ How to Use This Repository  
 
 This repo is for beginners who want to see simple JavaScript projects in action. You can:  
