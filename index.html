@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Projects</title>
+  <style>
+    :root {
+      --bg-light: #f0f0f0;
+      --text-light: #333;
+      --card-light: #ffffff;
+
+      --bg-dark: #121212;
+      --text-dark: #f8f8f8;
+      --card-dark: #1e1e1e;
+
+      --btn-light: #007bff;
+      --btn-dark: #00bfff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    body.light-mode {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 8px;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    body.dark-mode .container {
+      background: var(--card-dark);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .container {
+      background: var(--card-light);
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      transition: color 0.3s;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    body.dark-mode .btn {
+      background-color: var(--btn-dark);
+      color: white;
+    }
+
+    body.dark-mode .btn:hover {
+      background-color: #0099cc;
+    }
+
+    body.light-mode .btn {
+      background-color: var(--btn-light);
+      color: white;
+    }
+
+    body.light-mode .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .toggle-btn {
+      display: block;
+      margin: 0 auto 20px auto;
+      padding: 8px 16px;
+      font-size: 14px;
+      background: transparent;
+      border: 2px solid currentColor;
+      border-radius: 5px;
+      cursor: pointer;
+      color: inherit;
+      transition: all 0.3s;
+    }
+
+    body.dark-mode .toggle-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .toggle-btn:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Light Mode</button>
+    <h1>Projects</h1>
+    <div class="btn-container">
+      <a class="btn" href="pages/bookmark-saver.html">Bookmark Saver</a>
+      <a class="btn" href="pages/heads-tails.html">Heads & Tails Game</a>
+      <a class="btn" href="pages/password-generator.html">Password Generator</a>
+      <a class="btn" href="pages/qr-code-generator.html">QR Code Generator</a>
+      <a class="btn" href="pages/rock-paper-scissors.html">Rock Paper Scissors</a>
+      <a class="btn" href="pages/roman-converter.html">Roman Converter</a>
+      <a class="btn" href="pages/weather-app.html">Weather App</a>
+      <a class="btn" href="pages/calculator.html">Calculator</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      const isDark = body.classList.contains('dark-mode');
+
+      if (isDark) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        document.querySelector('.toggle-btn').textContent = 'Toggle Dark Mode';
+      } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        document.querySelector('.toggle-btn').textContent = 'Toggle Light Mode';
+      }
+    }
+  </script>
+</body>
+</html>
